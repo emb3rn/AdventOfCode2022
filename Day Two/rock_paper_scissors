@@ -1,0 +1,36 @@
+input = open('Day Two/input.txt', 'r')
+lines = input.readlines()
+
+conditions_dict = {
+    'AX' : 'AC',
+    'AY' : 'AA',
+    'AZ' : 'AB',
+    'BX' : 'BA',
+    'BY' : 'BB',
+    'BZ' : 'BC',
+    'CX' : 'CB',
+    'CY' : 'CC',
+    'CZ' : 'CA',
+}
+
+point_values = {
+    "X" : 0, 
+    "Y" : 3,
+    "Z" : 6,
+    "A" : 1,
+    "B" : 2,
+    "C" : 3
+}
+
+total_points = 0
+
+for line in lines:
+    combination = f"{line[0]}{line[2]}"
+    
+    total_points = total_points + point_values[combination[1]]
+
+    total_points = total_points + point_values[conditions_dict[combination][1]]
+   
+    print(total_points)
+
+print(total_points)
